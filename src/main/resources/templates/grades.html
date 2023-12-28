@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>Grades</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand text-light ms-5" th:href="@{/}">Main</a>
+        <a class="navbar-brand text-light" th:href="@{/houses}">Houses</a>
+        <a class="navbar-brand text-light" th:href="@{/courses/page/1}">Courses</a>
+    </nav>
+    <div class="container mt-4">
+        <table th:object="${course}" class="table">
+            <h2 class="mt-3">Students</h2>
+            <h3 th:text="*{subject}"></h3>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>House</th>
+                    <th>Grades</th>
+                    <th>Average</th>
+                    <th>New grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:object="${student}">
+                    <td th:text="*{firstName}"></td>
+                    <td th:text="*{lastName}"></td>
+                    <td th:text="*{house.name}"></td>
+                    <td>
+                        <p style="display: inline" th:each="grade: ${grades}"
+                            th:text="${grade.course.id == course.id } ? ${grade.score} + ' '"></p>
+                    </td>
+                    <td th:text="${averages[student.id] == 0 } ? '-' : ${averages[student.id]}"></td>
+                    <td>
+                        <form method="post" th:object="${grade}"
+                            th:action="@{/course/{courseId}/student/{studentId}/grade/add(courseId=${course.id}, 
+                            studentId=${student.id})}">
+                            <input class="form-control card" type="text" placeholder="Score" th:field="*{score}" />
+                            <input class="btn btn-primary mt-2" type="submit" value="Add grade" />
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="text-danger" th:errors="${grade.score}"></p>
+    </div>
+    <div class="container mt-2">
+        <form method="post" th:object="${grade}"
+            th:action="@{/course/{courseId}/student/{studentId}/grade/delete(courseId=${course.id}, studentId=${student.id})}">
+            <select class="form-select card" th:field="${grade.id}">
+                <option value="">Choose Grade</option>
+                <option th:each="grade: ${grades}" th:text="${grade.course.subject == course.subject } ? ${grade.score}"
+                    th:value="${grade.id}">
+                    Placeholder
+                </option>
+            </select>
+            <input class="btn btn-danger mt-2" type="submit" value="Delete" />
+        </form>
+        <a class="btn btn-secondary mt-2" th:href="@{/course/{courseId}/students(courseId=${course.id})}">Back</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

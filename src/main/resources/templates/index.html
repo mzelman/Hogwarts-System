@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>Hogwarts</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand text-light ms-5" th:href="@{/}">Main</a>
+        <a class="navbar-brand text-light" th:href="@{/houses}">Houses</a>
+        <a class="navbar-brand text-light" th:href="@{/courses/page/1}">Courses</a>
+    </nav>
+    <div class="container mt-4">
+        <h1 class="text-center">Hogwarts Student Management System</h1>
+        <div class="w-50 mx-auto">
+            <img src="hogwarts_logo.png" alt="Hogwarts' logo" class="img-fluid d-block mx-auto"
+                style="width: 400px; height: auto; margin:auto" />
+        </div>
+        <div class="container mt-3">
+            <p class="text-center">To add or delete students, choose the "Houses" tab from the top navigation bar, then
+                select a House. <br>
+                To manage courses and grades, choose the "Courses" tab. <br>
+                Enrolling students in courses can be done on the student page or in the course page. <br>
+                Deleting students from a course is only allowed on the course page.</p>
+        </div>
+    </div>
+    <footer class="fixed-bottom bg-dark text-white text-center p-2" style="margin-top: 20px;">
+        <p class="mb-0">All the data on this page is from: <a href="https://harrypotter.fandom.com/wiki/"
+                class="text-success">Harry Potter fandom wiki</a></p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
