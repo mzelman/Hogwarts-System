@@ -1,4 +1,4 @@
-![image](https://github.com/mzelman/Hogwarts-System/assets/45469592/0802a785-8d10-4ca8-9e69-4893cbb72bc6)![image](https://github.com/mzelman/Hogwarts-System/assets/45469592/c9b1d1ad-2aaf-4fe9-964f-1de3e7f2b523)# Hogwarts Student Management System
+Hogwarts Student Management System
 
 App available [here](https://hogwarts-system-production.up.railway.app/ "Hogwarts Student Management System").
 
