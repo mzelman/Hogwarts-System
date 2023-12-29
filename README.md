@@ -1,4 +1,4 @@
-Hogwarts Student Management System
+# Hogwarts Student Management System
 
 App available [here](https://hogwarts-system-production.up.railway.app/ "Hogwarts Student Management System").
 
