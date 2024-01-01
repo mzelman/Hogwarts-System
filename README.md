@@ -2,7 +2,7 @@
 
 App available [here](https://hogwarts-system-production.up.railway.app/ "Hogwarts Student Management System").
 
-The purpose of the project is to manage students, courses, and grades at Hogwarts School of Witchcraft and Wizardry. It allows adding students to one of the four Hogwarts houses: Gryffindor, Slytherin, Ravenclaw, or Hufflepuff. Students can be enrolled in courses, and their grades can be tracked, along with the average grade from every course. Additionally, the system allows for the addition, editing, or deletion of courses. Each course has its own page with a list of students and their grades. The system also tallies points collected by students in each house, displaying them on the "Houses" page.
+The purpose of the project is to manage students, courses, and grades at Hogwarts School of Witchcraft and Wizardry. It allows adding students to one of the four Hogwarts houses: Gryffindor, Slytherin, Ravenclaw, or Hufflepuff. Students can be enrolled in courses, and their grades can be tracked, along with the average grade from every course. Additionally, the system allows for the addition, editing, or deletion of courses. Each course has its own page with a list of students and their grades. The system also tracks points collected by students in each house, displaying them on the "Houses" page.
 
 ## How to use
 
