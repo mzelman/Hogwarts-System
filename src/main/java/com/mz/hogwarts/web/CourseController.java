@@ -73,7 +73,10 @@ public class CourseController {
 
     @GetMapping("/course/{courseId}/edit")
     public String editCourse(Model model, @PathVariable Long courseId) {
-        model.addAttribute("course", courseService.getCourseById(courseId));
+        Course existingCourse = courseService.getCourseById(courseId);
+        model.addAttribute("courseSubject", existingCourse.getSubject());
+        model.addAttribute("courseCode", existingCourse.getCode());
+        model.addAttribute("course", existingCourse);
         return "courseform";
     }
 
@@ -81,16 +84,22 @@ public class CourseController {
     public String updateCourse(Model model, @PathVariable Long courseId, @Valid Course course, BindingResult result,
             RedirectAttributes redirectAttributes) {
         Course existingCourse = courseService.getCourseById(courseId);
-        model.addAttribute("course", existingCourse);
+        course.setId(courseId);
+        model.addAttribute("courseSubject", existingCourse.getSubject());
+        model.addAttribute("courseCode", existingCourse.getCode());
+        model.addAttribute("course", course);
+
         if (result.hasErrors()) {
             return "courseform";
         }
+
         if ((!course.getCode().equals(existingCourse.getCode()) && courseService.checkCourseCodeDuplicate(course)) ||
                 (!course.getSubject().equals(existingCourse.getSubject())
                         && courseService.checkCourseSubjectDuplicate(course))) {
             redirectAttributes.addFlashAttribute("status", "failed");
             return "redirect:/course/{courseId}/edit";
         }
+
         redirectAttributes.addFlashAttribute("status", "success");
         courseService.editCourse(courseId, course);
         return "redirect:/course/{courseId}";
