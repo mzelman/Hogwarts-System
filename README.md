@@ -58,6 +58,7 @@ When you click the "edit" link in the "Edit grades" column, you get redirected t
 - Java version 17
 - Apache Maven 4.0.0
 - Spring Boot 2.7.9
+- Docker
 
 ## Running
 
